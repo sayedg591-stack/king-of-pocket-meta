@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>King of Pocket | كينج أوف بوكيت</title>
+    <!-- Google Fonts: Cairo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1385866136847074');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1385866136847074&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
+    <style>
+        :root {
+            --bg-main: #060b17;
+            --card-glass: rgba(14, 23, 42, 0.72);
+            --border-glass: rgba(255, 255, 255, 0.12);
+            --border-glow: rgba(0, 210, 255, 0.35);
+            --cyan-neon: #00d2ff;
+            --blue-neon: #0066ff;
+            --gold-neon: #ffb703;
+            --gold-gradient: linear-gradient(135deg, #ffd700, #ff8800);
+            --green-live: #10b981;
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(0, 210, 255, 0.12), transparent 30%),
+                radial-gradient(circle at 90% 80%, rgba(147, 51, 234, 0.15), transparent 35%),
+                radial-gradient(circle at 50% 50%, rgba(0, 102, 255, 0.08), transparent 50%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 15px 90px 15px;
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        .dashboard-wrapper {
+            width: 100%;
+            max-width: 1150px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* 3-Column Layout */
+        .layout-grid {
+            display: grid;
+            grid-template-columns: 280px 1fr 280px;
+            gap: 20px;
+            align-items: stretch;
+        }
+
+        /* Glassmorphism Card Style */
+        .glass-panel {
+            background: var(--card-glass);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid var(--border-glass);
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(255, 255, 255, 0.02);
+            transition: all 0.3s ease;
+        }
+
+        .glass-panel:hover {
+            border-color: var(--border-glow);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 210, 255, 0.15);
+        }
+
+        /* Side Cards */
+        .side-column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .feature-card {
+            padding: 24px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            flex: 1;
+            transform: translateY(0);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .card-icon-wrapper {
+            width: 75px;
+            height: 75px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            margin-bottom: 16px;
+            box-shadow: inset 0 0 15px rgba(0, 210, 255, 0.1);
+        }
+
+        .feature-card h3 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+            color: #fff;
+        }
+
+        .feature-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Center Hub */
+        .center-hub {
+            padding: 36px 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            border: 1px solid rgba(0, 210, 255, 0.25);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 35px rgba(0, 210, 255, 0.1);
+        }
+
+        .brand-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .crown-icon {
+            font-size: 2.5rem;
+            color: var(--gold-neon);
+            filter: drop-shadow(0 0 14px rgba(255, 183, 3, 0.6));
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+
+        .brand-title {
+            font-size: 1.4rem;
+            font-weight: 900;
+            background: linear-gradient(90deg, #ffc837, #ff8008);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 0.5px;
+        }
+
+        /* Core Headline Box */
+        .headline-box {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            padding: 22px;
+            margin-bottom: 28px;
+            width: 100%;
+        }
+
+        .headline-box h2 {
+            font-size: 1.25rem;
+            line-height: 1.7;
+            font-weight: 800;
+            color: #ffffff;
+        }
+
+        .headline-box .gold-txt {
+            color: var(--gold-neon);
+        }
+
+        /* CTA Golden Button in Center */
+        .main-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: var(--gold-gradient);
+            color: #0b1120;
+            text-decoration: none;
+            width: 100%;
+            padding: 16px 28px;
+            border-radius: 18px;
+            font-size: 1.2rem;
+            font-weight: 900;
+            box-shadow: 0 8px 30px rgba(255, 183, 3, 0.4);
+            transition: all 0.3s ease;
+            margin-bottom: 16px;
+            cursor: pointer;
+        }
+
+        .main-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(255, 183, 3, 0.6);
+        }
+
+        .main-btn i {
+            font-size: 1.4rem;
+            color: #0088cc;
+        }
+
+        .sub-counter {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 22px;
+            font-weight: 600;
+        }
+
+        .sub-counter span {
+            color: var(--cyan-neon);
+            font-weight: 800;
+        }
+
+        /* Trust Stats */
+        .trust-stats {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            width: 100%;
+            padding-top: 18px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .stat-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85rem;
+            color: #e2e8f0;
+            font-weight: 700;
+        }
+
+        .stat-badge i {
+            color: var(--cyan-neon);
+        }
+
+        /* Bottom Security Bar */
+        .bottom-bar {
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .security-links {
+            display: flex;
+            gap: 16px;
+        }
+
+        .security-links span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #cbd5e1;
+        }
+
+        .safe-guarantee {
+            color: var(--green-live);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Floating Sticky Button */
+        .sticky-floating-cta {
+            position: fixed;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 9999;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #ffd700, #ff8008);
+            color: #0b1120;
+            text-decoration: none;
+            padding: 13px 32px;
+            border-radius: 50px;
+            font-weight: 900;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 25px rgba(255, 183, 3, 0.5);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            animation: pulse-btn 2s infinite ease-in-out;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .sticky-floating-cta:hover {
+            transform: translateX(-50%) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), 0 0 35px rgba(255, 183, 3, 0.8);
+        }
+
+        .sticky-floating-cta i {
+            color: #0088cc;
+            font-size: 1.3rem;
+        }
+
+        @keyframes pulse-btn {
+            0%, 100% {
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(255, 183, 3, 0.4);
+            }
+            50% {
+                box-shadow: 0 10px 35px rgba(0, 0, 0, 0.7), 0 0 35px rgba(255, 183, 3, 0.8);
+            }
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 992px) {
+            .layout-grid {
+                grid-template-columns: 1fr;
+            }
+            .side-column {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+            .center-hub {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .side-column {
+                grid-template-columns: 1fr;
+            }
+            .bottom-bar {
+                flex-direction: column;
+                text-align: center;
+            }
+            .headline-box h2 {
+                font-size: 1.05rem;
+            }
+            .sticky-floating-cta {
+                width: 90%;
+                justify-content: center;
+                font-size: 1rem;
+                padding: 12px 20px;
+                bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="dashboard-wrapper">
+        <!-- 3-Column Main Grid -->
+        <div class="layout-grid">
+            
+            <!-- Left Side Cards -->
+            <div class="side-column">
+                <div class="glass-panel feature-card">
+                    <div class="card-icon-wrapper">📊</div>
+                    <h3>جلسات تحليلية يومية</h3>
+                    <p>تحليلات دقيقة لحركة السوق واقتناص أفضل الفرص أولاً بأول</p>
+                </div>
+                <div class="glass-panel feature-card">
+                    <div class="card-icon-wrapper">🤖</div>
+                    <h3>بوت تداول مجاني</h3>
+                    <p>إشارات فورية ومستمرة مدعومة بأحدث خوارزميات التداول</p>
+                </div>
+            </div>
+
+            <!-- Center Focus Hub -->
+            <div class="glass-panel center-hub">
+                <div class="brand-header">
+                    <i class="fa-solid fa-crown crown-icon"></i>
+                    <h1 class="brand-title">KING OF POCKET | كينج أوف بوكيت</h1>
+                </div>
+
+                <!-- Core Announcement Box -->
+                <div class="headline-box">
+                    <h2>
+                        انضم الآن واحصل على ثغرات خاصة بالتداول 💰
+                        <span class="gold-txt">واستراتيجيات تداول يومية بشكل مجاني 🥇</span>
+                    </h2>
+                </div>
+
+                <!-- Main Action Button -->
+                <a href="https://t.me/+t7h9LahMAsEyNWE0" target="_blank" class="main-btn" onclick="fbq('track', 'Purchase', {value: 5.00, currency: 'EGP'});">
+                    <span>اضغط هنا للانضمام</span>
+                    <i class="fa-brands fa-telegram"></i>
+                </a>
+
+                <div class="sub-counter">
+                    انضم إلى أكثر من <span>+12,450</span> عضو نشط في القناة
+                </div>
+
+                <!-- Verified Stats -->
+                <div class="trust-stats">
+                    <div class="stat-badge">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span>نسبة نجاح تفوق 95%</span>
+                    </div>
+                    <div class="stat-badge">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>مجتمع موثوق ومعتمد</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side Cards -->
+            <div class="side-column">
+                <div class="glass-panel feature-card">
+                    <div class="card-icon-wrapper">🎓</div>
+                    <h3>تدريب مجاني شامل</h3>
+                    <p>خطة تعليمية متكاملة تأخذك خطوة بخطوة من الصفر حتى الاحتراف</p>
+                </div>
+                <div class="glass-panel feature-card">
+                    <div class="card-icon-wrapper">👥</div>
+                    <h3>مجتمع تداول نشط</h3>
+                    <p>تبادل الخبرات اليومية والنقاشات المستمرة مع نخبة المتداولين</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Bottom Security & Trust Footer -->
+        <div class="glass-panel bottom-bar">
+            <div class="security-links">
+                <span><i class="fa-solid fa-shield-halved"></i> حماية وتشفير عالي</span>
+                <span><i class="fa-solid fa-lock"></i> خصوصية تامة</span>
+            </div>
+            <div class="safe-guarantee">
+                <i class="fa-solid fa-circle-check"></i>
+                انضمام آمن ومجاني 100% بدون أي رسوم خفية
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Sticky Button -->
+    <a href="https://t.me/+t7h9LahMAsEyNWE0" target="_blank" class="sticky-floating-cta" onclick="fbq('track', 'Purchase', {value: 5.00, currency: 'EGP'});">
+        <span>اضغط هنا للانضمام</span>
+        <i class="fa-brands fa-telegram"></i>
+    </a>
+
+</body>
+</html>

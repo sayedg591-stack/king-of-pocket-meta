@@ -4,14 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>King of Pocket | كينج أوف بوكيت</title>
-    <!-- Google Fonts: Cairo -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -23,12 +20,19 @@
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1385866136847074');
     fbq('track', 'PageView');
+
+    // Dynamic Purchase Value Tracker (5.00 - 8.00 EGP)
+    function trackDynamicPurchase() {
+        var randomValue = (Math.random() * (8.00 - 5.00) + 5.00).toFixed(2);
+        fbq('track', 'Purchase', {
+            value: parseFloat(randomValue), 
+            currency: 'EGP'
+        });
+    }
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1385866136847074&ev=PageView&noscript=1"
     /></noscript>
-    <!-- End Meta Pixel Code -->
-
     <style>
         :root {
             --bg-main: #060b17;
@@ -388,10 +392,8 @@
 <body>
 
     <div class="dashboard-wrapper">
-        <!-- 3-Column Main Grid -->
         <div class="layout-grid">
             
-            <!-- Left Side Cards -->
             <div class="side-column">
                 <div class="glass-panel feature-card">
                     <div class="card-icon-wrapper">📊</div>
@@ -405,14 +407,12 @@
                 </div>
             </div>
 
-            <!-- Center Focus Hub -->
             <div class="glass-panel center-hub">
                 <div class="brand-header">
                     <i class="fa-solid fa-crown crown-icon"></i>
                     <h1 class="brand-title">KING OF POCKET | كينج أوف بوكيت</h1>
                 </div>
 
-                <!-- Core Announcement Box -->
                 <div class="headline-box">
                     <h2>
                         انضم الآن واحصل على ثغرات خاصة بالتداول 💰
@@ -420,8 +420,7 @@
                     </h2>
                 </div>
 
-                <!-- Main Action Button -->
-                <a href="https://t.me/+t7h9LahMAsEyNWE0" target="_blank" class="main-btn" onclick="fbq('track', 'Purchase', {value: 5.00, currency: 'EGP'});">
+                <a href="https://t.me/+t7h9LahMAsEyNWE0" target="_blank" class="main-btn" onclick="trackDynamicPurchase();">
                     <span>اضغط هنا للانضمام</span>
                     <i class="fa-brands fa-telegram"></i>
                 </a>
@@ -430,7 +429,6 @@
                     انضم إلى أكثر من <span>+12,450</span> عضو نشط في القناة
                 </div>
 
-                <!-- Verified Stats -->
                 <div class="trust-stats">
                     <div class="stat-badge">
                         <i class="fa-solid fa-chart-line"></i>
@@ -443,7 +441,6 @@
                 </div>
             </div>
 
-            <!-- Right Side Cards -->
             <div class="side-column">
                 <div class="glass-panel feature-card">
                     <div class="card-icon-wrapper">🎓</div>
@@ -459,7 +456,6 @@
 
         </div>
 
-        <!-- Bottom Security & Trust Footer -->
         <div class="glass-panel bottom-bar">
             <div class="security-links">
                 <span><i class="fa-solid fa-shield-halved"></i> حماية وتشفير عالي</span>
@@ -472,8 +468,7 @@
         </div>
     </div>
 
-    <!-- Floating Sticky Button -->
-    <a href="https://t.me/+t7h9LahMAsEyNWE0" target="_blank" class="sticky-floating-cta" onclick="fbq('track', 'Purchase', {value: 5.00, currency: 'EGP'});">
+    <a href="https://t.me/+t7h9LahMAsEyNWE0" target="_blank" class="sticky-floating-cta" onclick="trackDynamicPurchase();">
         <span>اضغط هنا للانضمام</span>
         <i class="fa-brands fa-telegram"></i>
     </a>

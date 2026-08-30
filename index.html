@@ -307,6 +307,22 @@
             gap: 6px;
         }
 
+        /* Risk Disclaimer Section */
+        .risk-warning {
+            padding: 14px 20px;
+            text-align: center;
+            font-size: 0.72rem;
+            color: #64748b;
+            line-height: 1.6;
+            border-radius: 16px;
+            background: rgba(14, 23, 42, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .risk-warning strong {
+            color: #94a3b8;
+        }
+
         /* Floating Sticky Button */
         .sticky-floating-cta {
             position: fixed;
@@ -375,6 +391,10 @@
             .headline-box h2 {
                 font-size: 1.05rem;
             }
+            .risk-warning {
+                font-size: 0.68rem;
+                padding: 10px 14px;
+            }
             .sticky-floating-cta {
                 width: 90%;
                 justify-content: center;
@@ -421,7 +441,7 @@
                 </div>
 
                 <!-- Main Action Button -->
-                <a href="https://t.me/+t7h9LahMAsEyNWE0" target="_blank" class="main-btn" onclick="fbq('track', 'Subscribe');">
+                <a href="https://t.me/+t7h9LahMAsEyNWE0" target="_blank" class="main-btn" onclick="fbq('track', 'Purchase', {value: 5.00, currency: 'EGP'});">
                     <span>اضغط هنا للانضمام</span>
                     <i class="fa-brands fa-telegram"></i>
                 </a>
@@ -470,10 +490,15 @@
                 انضمام آمن ومجاني 100% بدون أي رسوم خفية
             </div>
         </div>
+
+        <!-- Risk Disclaimer -->
+        <div class="risk-warning">
+            <strong>إخلاء مسؤولية وتحذير من المخاطر:</strong> التداول في الأسواق المالية والخيارات الثنائية ينطوي على درجة عالية من المخاطر وقد يؤدي إلى خسارة جزء من رأس مالك أو كله. المحتوى والأدوات المقدمة هي لأغراض تعليمية وإرشادية فقط ولا تعتبر نصيحة استثمارية أو مالية مباشرة. تداول دائماً بما يمكنك تحمل خسارته.
+        </div>
     </div>
 
     <!-- Floating Sticky Button -->
-    <a href="https://t.me/+t7h9LahMAsEyNWE0" target="_blank" class="sticky-floating-cta" onclick="fbq('track', 'Subscribe');">
+    <a href="https://t.me/+t7h9LahMAsEyNWE0" target="_blank" class="sticky-floating-cta" onclick="fbq('track', 'Purchase', {value: 5.00, currency: 'EGP'});">
         <span>اضغط هنا للانضمام</span>
         <i class="fa-brands fa-telegram"></i>
     </a>

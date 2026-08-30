@@ -23,6 +23,15 @@
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1385866136847074');
     fbq('track', 'PageView');
+
+    // Function to track Subscribe with dynamic random value between 5 and 9 EGP
+    function trackDynamicSubscribe() {
+        var randomVal = (Math.random() * (9.00 - 5.00) + 5.00).toFixed(2);
+        fbq('track', 'Subscribe', {
+            value: parseFloat(randomVal),
+            currency: 'EGP'
+        });
+    }
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1385866136847074&ev=PageView&noscript=1"
@@ -441,7 +450,7 @@
                 </div>
 
                 <!-- Main Action Button -->
-                <a href="https://t.me/+t7h9LahMAsEyNWE0" target="_blank" class="main-btn" onclick="fbq('track', 'Purchase', {value: 5.00, currency: 'EGP'});">
+                <a href="https://t.me/+t7h9LahMAsEyNWE0" target="_blank" class="main-btn" onclick="trackDynamicSubscribe();">
                     <span>اضغط هنا للانضمام</span>
                     <i class="fa-brands fa-telegram"></i>
                 </a>
@@ -498,7 +507,7 @@
     </div>
 
     <!-- Floating Sticky Button -->
-    <a href="https://t.me/+t7h9LahMAsEyNWE0" target="_blank" class="sticky-floating-cta" onclick="fbq('track', 'Purchase', {value: 5.00, currency: 'EGP'});">
+    <a href="https://t.me/+t7h9LahMAsEyNWE0" target="_blank" class="sticky-floating-cta" onclick="trackDynamicSubscribe();">
         <span>اضغط هنا للانضمام</span>
         <i class="fa-brands fa-telegram"></i>
     </a>
